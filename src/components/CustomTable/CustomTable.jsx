@@ -1,10 +1,12 @@
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material'
 import PropTypes from 'prop-types'
 import response from '../../data/response'
+import { toBrDate, toBRL } from '../../helpers/toLocale'
 
 const tableHeaders = ["Data", "Valor", "Tipo", "Nome operador transacionado"]
 
 function CustomTable() {
+
 
 
   return (
@@ -20,8 +22,8 @@ function CustomTable() {
       <TableBody>
         {response.map(({data, valor, tipo, nome})=> (
           <TableRow key={`${data}${valor}`}>
-            <TableCell>{data}</TableCell>
-            <TableCell>{valor}</TableCell>
+            <TableCell>{toBrDate(data)}</TableCell>
+            <TableCell>{toBRL(valor)}</TableCell>
             <TableCell>{tipo}</TableCell>
             <TableCell>{nome}</TableCell>
           </TableRow>
