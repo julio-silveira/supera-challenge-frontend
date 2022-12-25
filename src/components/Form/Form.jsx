@@ -1,18 +1,27 @@
 import { Box, Button, Stack, TextField } from '@mui/material'
 import PropTypes from 'prop-types'
+import { useContext } from 'react';
 import { useState } from 'react'
+import { useLocation } from 'react-router-dom';
+import AppContext from '../../context/AppContext';
+import { fetchAllTransactions } from '../../helpers/fetch';
 
 function Form() {
+  const {setAllTransactions} = useContext(AppContext)
   const [startingDate, setStartingDate] = useState('');
   const [endingDate, setEndingDate] = useState('');
   const [name, setName] = useState('');
+  const location = useLocation();
 
   const handleStartingDate = ({target: {value}}) => setStartingDate(value)
   const handleEndingDate = ({target: {value}}) => setEndingDate(value)
   const handleName = ({target: {value}}) => setName(value)
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
+    const id = location.pathname.split("/")[1] || 1
+    const data = await fetchAllTransactions({id, startingDate, endingDate, name})
+    setAllTransactions(data)
   }
 
 

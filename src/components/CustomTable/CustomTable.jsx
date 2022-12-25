@@ -10,7 +10,7 @@ const tableHeaders = ["Data", "Valor", "Tipo", "Nome operador transacionado"]
 
 function CustomTable() {
 
-  const { totalBalance } = useContext(AppContext)
+  const { totalBalance, allTransactions } = useContext(AppContext)
   return (
     <TableContainer>
       <Box>
@@ -25,7 +25,7 @@ function CustomTable() {
         </TableRow>
       </TableHead>
       <TableBody>
-        {response.map(({data, valor, tipo, nome})=> (
+        {allTransactions.map(({data, valor, tipo, nome})=> (
           <TableRow hover key={`${data}${valor}`}>
             <TableCell>{toBrDate(data)}</TableCell>
             <TableCell>{toBRL(valor)}</TableCell>
