@@ -22,7 +22,8 @@ export const fetchAllTransactions = async (inputData) => {
   }
   const response = await  fetch(url,options);
   const data = await response.json();
-  return data;
+  const sortedByDate = data.sort((a,b)=> new Date(a.data) - new Date(b.data))
+  return sortedByDate;
   } catch (err) {
     console.log(err);
     return errorResponse

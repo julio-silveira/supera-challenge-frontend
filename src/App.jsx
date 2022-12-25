@@ -10,7 +10,14 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <Box >
+    <Box sx={{
+        display: "flex",
+        flexDirection: "column",
+        width: "100%",
+        minHeight: "100vh",
+        justifyContent: 'space-evenly',
+        alignItems: 'center'
+      }} >
       <Form />
       <CustomTable />
     </Box>
