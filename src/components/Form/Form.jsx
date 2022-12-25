@@ -3,18 +3,24 @@ import PropTypes from 'prop-types'
 
 function Form() {
   return  <Box >
-  <Stack direction="row">
+  <Stack direction="row" spacing={1}>
     <TextField
-      label="Data de início"
+      variant='standard'
+      helperText="Data de início"
+      type="date"
+
     />
     <TextField
-      label="Data de fim"
+      variant='standard'
+      helperText="Data de fim"
+      type="date"
     />
     <TextField
-      label="Nome operador transacionado"
+      variant='standard'
+      helperText="Nome operador transacionado"
     />
   </Stack>
- <Button>Pesquisar</Button>
+ <Button variant='contained' color='success' >Pesquisar</Button>
 </Box>
 }
 

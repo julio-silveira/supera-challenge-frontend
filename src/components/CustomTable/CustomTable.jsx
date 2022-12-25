@@ -26,11 +26,11 @@ function CustomTable() {
       </TableHead>
       <TableBody>
         {response.map(({data, valor, tipo, nome})=> (
-          <TableRow key={`${data}${valor}`}>
+          <TableRow hover key={`${data}${valor}`}>
             <TableCell>{toBrDate(data)}</TableCell>
             <TableCell>{toBRL(valor)}</TableCell>
             <TableCell>{tipo}</TableCell>
-            <TableCell>{nome}</TableCell>
+            <TableCell>{nome || "-"}</TableCell>
           </TableRow>
         ))}
       </TableBody>
